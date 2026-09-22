@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="子午卯酉-中国传统十二时辰与四正方位文化解读，提供命理八字、风水布局、时辰运势及传统文化知识查询服务。">
+    <meta name="keywords" content="子午卯酉,十二时辰,四正,命理,风水,传统文化,八字,时辰">
+    <title>子午卯酉-中国传统十二时辰与四正方位文化解读</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f9f7f2;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: #ddd;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Concept Grid */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card.zi { border-top-color: #3498db; }
+        .card.wu { border-top-color: #f1c40f; }
+        .card.mao { border-top-color: #2ecc71; }
+        .card.you { border-top-color: #9b59b6; }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Article */
+        .featured-section {
+            background-color: #fff;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .featured-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .featured-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .featured-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background-color: #f4f6f7;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Interactive Section */
+        .interactive-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .time-card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .time-pill {
+            background: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #eee;
+        }
+
+        .time-pill:hover, .time-pill.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .featured-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">子午卯<span>酉</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#concept">四正方位</a></li>
+                    <li><a href="#culture">时辰文化</a></li>
+                    <li><a href="#practice">命理应用</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>四正方位与十二时辰</h1>
+            <p>探索中国传统干支历法中的核心概念，解读子午卯酉在时间、空间与命理中的深层含义。</p>
+            <a href="#concept" class="cta-button">开始探索</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Concept Section -->
+        <section id="concept" class="section">
+            <div class="section-title">
+                <h2>什么是子午卯酉？</h2>
+                <p>中国传统干支历法中的“四正”方位</p>
+            </div>
+            
+            <div class="concept-grid">
+                <article class="card zi">
+                    <span class="card-icon">子</span>
+                    <h3>子时 (23:00-01:00)</h3>
+                    <p>一天的开始，鼠类活跃之时。在十二生肖中属鼠，五行属水，象征着潜藏与新生。</p>
+                </article>
+                
+                <article class="card wu">
+                    <span class="card-icon">午</span>
+                    <h3>午时 (11:00-13:00)</h3>
+                    <p>阳气最盛之时，马匹奔跑之时。在十二生肖中属马，五行属火，象征着活力与热情。</p>
+                </article>
+                
+                <article class="card mao">
+                    <span class="card-icon">卯</span>
+                    <h3>卯时 (05:00-07:00)</h3>
+                    <p>日出东方，万物苏醒。在十二生肖中属兔，五行属木，象征着生长与和平。</p>
+                </article>
+                
+                <article class="card you">
+                    <span class="card-icon">酉</span>
+                    <h3>酉时 (17:00-19:00)</h3>
+                    <p>日落黄昏，鸡鸣报晓。在十二生肖中属鸡，五行属金，象征着收敛与收获。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Content -->
+        <section class="featured-section">
+            <div class="featured-layout">
+                <div class="featured-content">
+                    <h2>四正在空间与命理中的含义</h2>
+                    <p>在风水学与八字命理中，子午卯酉被称为“四正”或“四正方”。它们分别对应着东南西北四个正方位，以及十二地支中的四个核心节点。</p>
+                    <ul class="featured-list">
+                        <li><strong>方位：</strong>子为北，午为南，卯为东，酉为西。</li>
+                        <li><strong>五行：</strong>水、火、木、金，各居其位。</li>
+                        <li><strong>性格特征：</strong>通常被认为具有强烈的主见和鲜明的个性。</li>
+                    </ul>
+                </div>
+                <aside class="info-box">
+                    <h4>文化小知识</h4>
+                    <p>在传统戏曲和命理中，如果八字地支中同时出现“子午卯酉”四个字，通常被称为“四正全”，被认为气场比较独特，行事风格往往特立独行，但也容易面临较大的挑战。</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Interactive/Usage Section -->
+        <section id="culture" class="section">
+            <div class="section-title">
+                <h2>日常生活中的应用</h2>
+            </div>
+            <div class="interactive-section">
+                <p>点击下方时辰，了解其对应的生肖与主要特征</p>
+                <div class="time-card-container">
+                    <div class="time-pill active" onclick="showTimeInfo('zi')">子时 (鼠)</div>
+                    <div class="time-pill" onclick="showTimeInfo('wu')">午时 (马)</div>
+                    <div class="time-pill" onclick="showTimeInfo('mao')">卯时 (兔)</div>
+                    <div class="time-pill" onclick="showTimeInfo('you')">酉时 (鸡)</div>
+                </div>
+                <div id="time-detail" style="margin-top: 2rem; min-height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: var(--text-secondary);">请点击上方时辰查看详情...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="section-title">
+                <h2>常见问题</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px;">
+                <details style="margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color); padding-bottom: 0.5rem;">子午卯酉在八字中代表什么？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-secondary);">在八字命理中，这四个地支代表了人生中不同的阶段和特质。它们分别对应着人生的少年、青年、中年和老年，或者代表性格中的冲动、热情、温和与果断。</p>
+                </details>
+                <details style="margin-bottom: 1rem; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color); padding-bottom: 0.5rem;">为什么说子午卯酉是“四正”？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-secondary);">因为它们在十二地支中处于正位，分别对应着正北、正南、正东、正西四个方向，且在十二时辰中占据着关键的起始和结束节点。</p>
+                </details>
+                <details style="cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color); padding-bottom: 0.5rem;">如何查询自己的出生时辰？</summary>
+                    <p style="margin-top: 0.5rem; color: var(--text-secondary);">传统的时辰划分是按照农历时间计算的。如果您出生在23:00到01:00之间，即为子时；依此类推。现代计时与古代时辰的对应关系需要参考具体的农历日期。</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于子午卯酉</h4>
+                    <p>致力于传播中国传统干支历法与命理文化，提供准确的文化解读与时辰查询服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#concept">四正方位</a></li>
+                        <li><a href="#culture">时辰文化</a></li>
+                        <li><a href="#practice">命理应用</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱: contact@example.com</li>
+                        <li>地址: 中国传统文化研究院</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 子午卯酉文化网. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTimeInfo(type) {
+            const detailDiv = document.getElementById('time-detail');
+            const pills = document.querySelectorAll('.time-pill');
+            
+            // Remove active class from all pills
+            pills.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked pill
+            event.target.classList.add('active');
+
+            let content = '';
+            
+            switch(type) {
+                case 'zi':
+                    content = '<p><strong>子时 (23:00-01:00)</strong>：<br>生肖属鼠，又称“夜半”。此时阴气最盛，阳气初生。古人认为此时是鬼神出没之时，也是人休息养精蓄锐的关键时刻。</p>';
+                    break;
+                case 'wu':
+                    content = '<p><strong>午时 (11:00-13:00)</strong>：<br>生肖属马，又称“日中”。此时阳气达到顶峰，阴气始生。古有“午时三刻”斩首之说，也因此时马儿最精神而得名。</p>';
+                    break;
+                case 'mao':
+                    content = '<p><strong>卯时 (05:00-07:00)</strong>：<br>生肖属兔，又称“日出”。此时太阳初升，万物苏醒，兔子开始活动觅食，是充满生机与希望的时刻。</p>';
+                    break;
+                case 'you':
+                    content = '<p><strong>酉时 (17:00-19:00)</strong>：<br>生肖属鸡，又称“日入”。此时太阳落山，金鸡报晓。五行属金，代表着一天的结束和收敛，也是归巢之时。</p>';
+                    break;
+            }
+            
+            detailDiv.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
