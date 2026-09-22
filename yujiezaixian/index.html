@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>御姐在线-高端成熟女性形象展示与交流社区</title>
+    <meta name="description" content="御姐在线致力于打造专业的成熟女性形象展示与交流平台，提供精选写真、时尚穿搭指南、情感心理分享及互动社区服务。">
+    <meta name="keywords" content="御姐在线,成熟女性,御姐,写真,穿搭,情感,社区">
+    <style>
+        :root {
+            --primary-color: #b85c5c;
+            --secondary-color: #f8f0f0;
+            --text-main: #333333;
+            --text-light: #666666;
+            --text-gray: #999999;
+            --bg-body: #fafafa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span.more {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-gray);
+            border: 1px solid var(--text-gray);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-fill {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-fill:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fff 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(184, 92, 92, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 400px;
+            background: url('https://picsum.photos/seed/lady/800/600') center/cover no-repeat;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+            border-radius: var(--border-radius);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Content Feed */
+        .content-tabs {
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .tab-item {
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .tab-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img {
+            height: 320px;
+            width: 100%;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .avatar-small {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .author-name {
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        .interaction {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .ranking-list {
+            counter-reset: rank;
+        }
+
+        .ranking-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .ranking-item::before {
+            counter-increment: rank;
+            content: counter(rank);
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .ranking-item:nth-child(1)::before { background-color: #ff4d4f; }
+        .ranking-item:nth-child(2)::before { background-color: #ff7a45; }
+        .ranking-item:nth-child(3)::before { background-color: #ffc53d; }
+
+        .ranking-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .ranking-info h4:hover {
+            color: var(--primary-color);
+        }
+
+        .ranking-info p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background-color: #fff0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--secondary-color);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .guide-container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .guide-text {
+            flex: 1;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .guide-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .guide-image {
+            flex: 1;
+            height: 350px;
+            background: url('https://picsum.photos/seed/fashion/600/400') center/cover no-repeat;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .header-actions {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .guide-container {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">御姐在线</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">精选写真</a></li>
+                    <li><a href="#">时尚穿搭</a></li>
+                    <li><a href="#">情感社区</a></li>
+                    <li><a href="#">风格指南</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-fill">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">聚焦成熟魅力</span>
+                <h1>探索御姐风格的艺术与生活美学</h1>
+                <p>这里汇聚了最前沿的成熟女性穿搭灵感、高级感写真拍摄技巧，以及关于独立、自信与优雅的深度探讨。</p>
+                <div>
+                    <a href="#" class="btn btn-fill">浏览写真图集</a>
+                    <a href="#" class="btn btn-outline" style="margin-left: 10px;">加入社区</a>
+                </div>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="main-grid">
+            <!-- Left Column: Content Feed -->
+            <section class="content-feed">
+                <div class="content-tabs">
+                    <div class="tab-item active">推荐</div>
+                    <div class="tab-item">最新发布</div>
+                    <div class="tab-item">穿搭分享</div>
+                    <div class="tab-item">情感专栏</div>
+                </div>
+
+                <div class="card-grid">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-badge">写真</span>
+                            <img src="https://picsum.photos/seed/woman1/400/500" alt="高级感黑白写真">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">极简黑白：诠释成熟女性的冷艳与高贵</a></h3>
+                            <div class="card-meta">
+                                <span>2小时前</span>
+                                <span>1.2k 阅读</span>
+                            </div>
+                            <p class="card-desc">本期主题探讨如何利用光影和极简构图，拍出具有电影质感的御姐风格黑白写真，展现岁月沉淀后的从容。</p>
+                            <div class="card-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user1/50/50" class="avatar-small" alt="User">
+                                    <span class="author-name">时尚主编</span>
+                                </div>
+                                <div class="interaction">
+                                    <span>❤ 328</span>
+                                    <span>💬 42</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-badge">穿搭</span>
+                            <img src="https://picsum.photos/seed/woman2/400/500" alt="秋季职场穿搭">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">秋季职场通勤：打造干练御姐范儿</a></h3>
+                            <div class="card-meta">
+                                <span>5小时前</span>
+                                <span>856 阅读</span>
+                            </div>
+                            <p class="card-desc">从西装外套到高腰裤，分享几套适合秋季职场女性的搭配公式，提升气场又不失女性柔美。</p>
+                            <div class="card-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user2/50/50" class="avatar-small" alt="User">
+                                    <span class="author-name">穿搭达人</span>
+                                </div>
+                                <div class="interaction">
+                                    <span>❤ 215</span>
+                                    <span>💬 18</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-badge">情感</span>
+                            <img src="https://picsum.photos/seed/woman3/400/500" alt="独处时光">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">学会独处：御姐的必修课</a></h3>
+                            <div class="card-meta">
+                                <span>昨天</span>
+                                <span>2.1k 阅读</span>
+                            </div>
+                            <p class="card-desc">独立并非冷漠，而是一种选择。探讨如何在忙碌的生活中保持内心的宁静与自我成长。</p>
+                            <div class="card-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user3/50/50" class="avatar-small" alt="User">
+                                    <span class="author-name">心理专栏</span>
+                                </div>
+                                <div class="interaction">
+                                    <span>❤ 892</span>
+                                    <span>💬 156</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-badge">摄影</span>
+                            <img src="https://picsum.photos/seed/woman4/400/500" alt="复古港风">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">复古港风拍摄指南：胶片质感重现</a></h3>
+                            <div class="card-meta">
+                                <span>2天前</span>
+                                <span>1.5k 阅读</span>
+                            </div>
+                            <p class="card-desc">想要拍出那种眼波流转的港风大片？掌握这几个色彩调整参数和滤镜设置是关键。</p>
+                            <div class="card-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user4/50/50" class="avatar-small" alt="User">
+                                    <span class="author-name">摄影小王子</span>
+                                </div>
+                                <div class="interaction">
+                                    <span>❤ 543</span>
+                                    <span>💬 67</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn btn-outline">加载更多内容</button>
+                </div>
+            </section>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <!-- Hot Ranking -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门榜单</h3>
+                    <div class="ranking-list">
+                        <div class="ranking-item">
+                            <div class="ranking-info">
+                                <h4><a href="#">秋季大衣穿搭：气场全开</a></h4>
+                                <p>阅读量 5.2w</p>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-info">
+                                <h4><a href="#">御姐妆容教程：眼妆是重点</a></h4>
+                                <p>阅读量 4.8w</p>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-info">
+                                <h4><a href="#">40岁女性的精致生活哲学</a></h4>
+                                <p>阅读量 3.9w</p>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-info">
+                                <h4><a href="#">如何在职场中保持优雅</a></h4>
+                                <p>阅读量 3.5w</p>
+                            </div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-info">
+                                <h4><a href="#">高领毛衣的多种穿法</a></h4>
+                                <p>阅读量 2.1w</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门标签</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">职场穿搭</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">气质发型</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">高跟鞋</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">独立女性</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">香水推荐</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">美妆技巧</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">家居生活</a>
+                        <a href="#" class="btn btn-outline" style="font-size: 12px; padding: 4px 10px;">旅游攻略</a>
+                    </div>
+                </div>
+
+                <!-- Advertisement Placeholder -->
+                <div class="sidebar-widget" style="background-color: #eee; height: 250px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px;">
+                    广告位 / Ad Space
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="feature-section">
+        <div class="container">
+            <h2 class="section-title">为什么选择御姐在线？</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✦</div>
+                    <h3>精选内容</h3>
+                    <p>严选优质写真与生活指南，拒绝低俗内容，专注品质。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">♥</div>
+                    <h3>真实社区</h3>
+                    <p>汇聚热爱生活的真实用户，分享真实的穿搭与心得。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">★</div>
+                    <h3>专业指导</h3>
+                    <p>邀请资深造型师与摄影师入驻，提供专业建议。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">★</div>
+                    <h3>风格多样</h3>
+                    <p>涵盖职场、休闲、复古等多种风格，满足不同需求。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="guide-section">
+        <div class="container guide-container">
+            <div class="guide-image"></div>
+            <div class="guide-text">
+                <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 20px;">成为御姐：从穿搭开始</h2>
+                <p style="margin-bottom: 20px; color: var(--text-light);">御姐风格不仅仅是外表的成熟，更是一种内在的自信与生活态度。以下是我们为您整理的核心要素：</p>
+                <ul class="guide-list">
+                    <li>选择剪裁利落的服装，注重质感而非数量</li>
+                    <li>善用配饰提升精致度，如丝巾、手表等</li>
+                    <li>保持自信的体态，抬头挺胸，眼神坚定</li>
+                    <li>妆容要干净大方，突出眼妆与唇妆的层次</li>
+                    <li>培养阅读习惯，提升内在修养</li>
+                </ul>
+                <a href="#" class="btn btn-fill" style="margin-top: 20px;">查看完整指南</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>御姐在线</h2>
+                    <p>专注成熟女性形象塑造与生活方式分享，致力于打造最专业、最优雅的垂直社区平台。</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="#">关于我们</a>
+                        <a href="#">联系方式</a>
+                        <a href="#">加入我们</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>栏目导航</h3>
+                    <ul>
+                        <li><a href="#">精选写真</a></li>
+                        <li><a href="#">时尚穿搭</a></li>
+                        <li><a href="#">情感专栏</a></li>
+                        <li><a href="#">美妆护肤</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书账号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 御姐在线 版权所有 | 本站内容仅供学习与交流，请勿用于商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
