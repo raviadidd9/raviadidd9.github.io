@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苍月奥特曼-特摄英雄档案与高清影像资料馆</title>
+    <meta name="description" content="苍月奥特曼（Gyokugetsu Ultraman）专题站，提供苍月奥特曼详细设定、变身道具解析、历代形态图鉴及高清特摄影像资料。深入了解苍月奥特曼的光之力量与战斗记录。">
+    <meta name="keywords" content="苍月奥特曼,特摄,奥特曼,特摄英雄,苍月形态,光之巨人">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #ffca28;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --hero-gradient: linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #42a5f5 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* 首屏 Hero 区域 */
+        .hero {
+            background: var(--hero-gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="white" opacity="0.05"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 202, 40, 0.4);
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 60px 0;
+        }
+
+        /* 通用标题样式 */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* 形态图鉴 Grid */
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .form-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-card.base {
+            border-top-color: #42a5f5;
+        }
+
+        .form-card.hero {
+            border-top-color: #ffca28;
+        }
+
+        .form-card.boss {
+            border-top-color: #ef5350;
+        }
+
+        .form-img {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .form-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-info {
+            padding: 20px;
+        }
+
+        .form-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-badge {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #eee;
+            color: #666;
+        }
+
+        .form-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .form-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: var(--primary-color);
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 变身道具与设定 */
+        .settings-section {
+            background-color: var(--bg-white);
+            padding: 60px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .settings-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .settings-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .settings-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .item-display {
+            background: #f0f4f8;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .item-display-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* 影像资料 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--bg-white);
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #263238;
+            color: #eceff1;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b0bec5;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474f;
+            color: #78909c;
+            font-size: 14px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .settings-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .form-stats {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">苍月<span>奥特曼</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#forms">形态图鉴</a></li>
+                    <li><a href="#settings">设定档案</a></li>
+                    <li><a href="#gallery">影像资料</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <h1>苍月奥特曼</h1>
+            <p>汇聚光之巨人的所有形态与战斗记录。探索苍月形态的奥秘，重温经典特摄瞬间。</p>
+            <a href="#forms" class="btn">查看形态图鉴</a>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        
+        <!-- 形态图鉴 Section -->
+        <section id="forms">
+            <div class="section-header">
+                <h2>形态图鉴</h2>
+                <p>苍月奥特曼拥有多种进化形态，每种形态都具备独特的战斗能力与防御特性。</p>
+            </div>
+
+            <div class="forms-grid">
+                <!-- 基础形态 -->
+                <article class="form-card base">
+                    <div class="form-img">
+                        <img src="https://picsum.photos/seed/ultraman1/400/300" alt="苍月奥特曼基础形态">
+                    </div>
+                    <div class="form-info">
+                        <h3>苍月基础形态 <span class="form-badge">基础</span></h3>
+                        <p>苍月奥特曼的初始形态，平衡了力量与速度。以月光的能量为核心，能够进行中短距离的快速移动，适合应对常规怪兽。</p>
+                        <div class="form-stats">
+                            <span class="stat-item">📏 身高: 53m</span>
+                            <span class="stat-item">⚖️ 体重: 49000t</span>
+                            <span class="stat-item">⚡ 能量: Lv.3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 苍月形态 -->
+                <article class="form-card hero">
+                    <div class="form-img">
+                        <img src="https://picsum.photos/seed/ultraman2/400/300" alt="苍月形态">
+                    </div>
+                    <div class="form-info">
+                        <h3>苍月形态 <span class="form-badge">必杀</span></h3>
+                        <p>苍月奥特曼在月光充能后的究极状态。全身被耀眼的苍蓝光芒覆盖，攻击力大幅提升，能够释放出贯穿敌人体内的“苍月光流”。</p>
+                        <div class="form-stats">
+                            <span class="stat-item">📏 身高: 53m</span>
+                            <span class="stat-item">⚖️ 体重: 49000t</span>
+                            <span class="stat-item">⚡ 能量: Lv.5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 暗月形态 -->
+                <article class="form-card boss">
+                    <div class="form-img">
+                        <img src="https://picsum.photos/seed/ultraman3/400/300" alt="暗月形态">
+                    </div>
+                    <div class="form-info">
+                        <h3>暗月形态 <span class="form-badge">特殊</span></h3>
+                        <p>吸收了月光中暗物质能量的变异形态。虽然防御力极高，但身体会逐渐被黑暗侵蚀，仅用于对抗极度危险的黑暗怪兽。</p>
+                        <div class="form-stats">
+                            <span class="stat-item">📏 身高: 55m</span>
+                            <span class="stat-item">⚖️ 体重: 52000t</span>
+                            <span class="stat-item">⚡ 能量: Lv.4</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 设定档案 Section -->
+        <section id="settings" class="settings-section">
+            <div class="container">
+                <div class="settings-layout">
+                    <div class="settings-content">
+                        <h3>光之棒：月华之杖</h3>
+                        <p>苍月奥特曼的变身器名为“月华之杖”。它并非普通的武器，而是连接地球磁场与苍月能量的媒介。在战斗中，月华之杖不仅用于防御和格挡，还能通过旋转释放出强大的冲击波。</p>
+                        <p>该道具由星光物质锻造而成，具有自我修复能力。当使用者处于危急时刻，月华之杖会自动激发出最高级别的保护屏障。</p>
+                        <p><strong>主要技能：</strong> 月华闪光、星光护盾、苍月极光。</p>
+                    </div>
+                    <div class="item-display">
+                        <div class="item-display-icon">✨</div>
+                        <h4>月华之杖</h4>
+                        <p style="color: #666; font-size: 14px;">能量增幅核心</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 影像资料 Section -->
+        <section id="gallery">
+            <div class="section-header">
+                <h2>影像资料</h2>
+                <p>精选特摄影像与高清剧照，记录每一次守护地球的瞬间。</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/tokusatsu1/400/300" alt="特摄剧照1">
+                    <div class="gallery-overlay">
+                        <h4>初次变身</h4>
+                        <p>2023年剧场版</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/tokusatsu2/400/300" alt="特摄剧照2">
+                    <div class="gallery-overlay">
+                        <h4>苍月光流</h4>
+                        <p>TV第12集</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/tokusatsu3/400/300" alt="特摄剧照3">
+                    <div class="gallery-overlay">
+                        <h4>暗月降临</h4>
+                        <p>剧场版番外篇</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/tokusatsu4/400/300" alt="特摄剧照4">
+                    <div class="gallery-overlay">
+                        <h4>月华之杖</h4>
+                        <p>道具特写</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container faq-container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">苍月奥特曼和迪迦奥特曼有什么关系？</button>
+                <div class="faq-answer">
+                    <p>苍月奥特曼是独立设定的原创特摄角色，属于虚拟的“光之巨人”家族成员。虽然设计灵感来源于经典的平成奥特曼，但其起源、设定及所属组织均有独特的故事背景，并非迪迦奥特曼的衍生或兄弟角色。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">如何获取变身道具“月华之杖”？</button>
+                <div class="faq-answer">
+                    <p>在特摄作品设定中，“月华之杖”是宇宙人赋予光之战士的专属信物，并非现实中可购买的玩具。在现实世界的周边商品中，仅有以该道具为原型的可动手办或模型发售，但无法像动画中那样真正变身。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">苍月形态的弱点是什么？</button>
+                <div class="faq-answer">
+                    <p>虽然苍月形态拥有极高的防御力，但其核心能量依然依赖月球的引力场。如果在无月之夜或强磁场干扰下，能量输出效率会大幅下降，且容易受到专门针对光能量的暗物质攻击。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <ul>
+                        <li><a href="#">关于苍月奥特曼</a></li>
+                        <li><a href="#">设定集下载</a></li>
+                        <li><a href="#">联系管理员</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="#">奥特曼系列官方</a></li>
+                        <li><a href="#">圆谷制作</a></li>
+                        <li><a href="#">特摄爱好协会</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情支持</h4>
+                    <ul>
+                        <li><a href="#">光之国数据库</a></li>
+                        <li><a href="#">怪兽图鉴网</a></li>
+                        <li><a href="#">特摄模型店</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 苍月奥特曼资料馆. 本站为特摄爱好者的非官方资料整理页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ 折叠逻辑
+        const questions = document.querySelectorAll('.faq-question');
+        
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // 关闭所有其他已展开的项
+                questions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.maxHeight = null;
+                });
+
+                // 如果刚才点击的不是已展开的项，则展开它
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
